@@ -1,0 +1,117 @@
+{
+  "data": {
+    "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+    "type": "candidateApplication",
+    "attributes": {
+      "personalInformation": {
+        "firstName": "string",
+        "lastName": "string",
+        "emailId": "user@example.com",
+        "phoneNumber": "string",
+        "nationality": "string",
+        "currentResidence": "string",
+        "idNumber": "string",
+        "dateOfBirth": "2019-08-24",
+        "gender": "string",
+        "personalAnswers": [
+          {
+            "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+            "answer": "string",
+            "selectedChoices": [
+              "string"
+            ],
+            "question": "string",
+            "type": "Paragraph",
+            "disqualify": false,
+            "other": false,
+            "booleanAnswer": true,
+            "numberAnswer": 0,
+            "dateAnswer": "2019-08-24T14:15:22Z",
+            "maxChoice": 0
+          }
+        ]
+      },
+      "profile": {
+        "education": [
+          {
+            "school": "string",
+            "degree": "HighSchool",
+            "course": "string",
+            "location": "string",
+            "startDate": "2019-08-24",
+            "endDate": "2019-08-24",
+            "currentlyStudyHere": false
+          }
+        ],
+        "workExperience": [
+          {
+            "company": "string",
+            "title": "string",
+            "location": "string",
+            "startDate": "2019-08-24",
+            "endDate": "2019-08-24",
+            "currentlyWorkHere": false
+          }
+        ],
+        "profileAnswers": [
+          {
+            "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+            "answer": "string",
+            "selectedChoices": [
+              "string"
+            ],
+            "question": "string",
+            "type": "Paragraph",
+            "disqualify": false,
+            "other": false,
+            "booleanAnswer": true,
+            "numberAnswer": 0,
+            "dateAnswer": "2019-08-24T14:15:22Z",
+            "maxChoice": 0
+          }
+        ]
+      },
+      "resume": "http://example.com",
+      "customisedAnswers": [
+        {
+          "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+          "answer": "string",
+          "selectedChoices": [
+            "string"
+          ],
+          "question": "string",
+          "type": "Paragraph",
+          "disqualify": false,
+          "other": false,
+          "booleanAnswer": true,
+          "numberAnswer": 0,
+          "dateAnswer": "2019-08-24T14:15:22Z",
+          "maxChoice": 0
+        }
+      ],
+      "stage": "9f09bdb0-89bd-4a1a-b468-0312474f1023",
+      "status": "Active",
+      "isDisabled": true,
+      "additionalVideoRequests": [
+        {
+          "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+          "question": "string",
+          "additionalInformation": "string",
+          "maxDuration": 0,
+          "maxDurationType": "Minute",
+          "deadlineInDays": 0,
+          "dateRequested": "2019-08-24T14:15:22Z"
+        }
+      ],
+      "videoAnswers": [
+        {
+          "id": "string",
+          "stage": "9f09bdb0-89bd-4a1a-b468-0312474f1023",
+          "video": "http://example.com",
+          "submittedOn": "2019-08-24T14:15:22Z",
+          "rating": 0
+        }
+      ]
+    }
+  }
+}

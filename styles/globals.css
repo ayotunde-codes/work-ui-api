@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 11, 11, 11;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html {
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(249, 250, 255)
+}
+
+.form-question-modal .ant-modal-content {
+  border-radius: 0 !important;
+  padding: 0 !important;
+  background: rgba(255, 255, 255, 0) !important;
+  box-shadow: none !important;
+}
+
+.form-question-modal .ant-modal-content .ant-modal-body {
+  background: rgba(255, 255, 255, 0) !important;
+}
+
+.form-question-dropdown .ant-dropdown-menu {
+  padding: 0 !important;
+  /* box-shadow: none !important; */
+}
+
+.form-question-dropdown .ant-dropdown-menu .ant-dropdown-menu-item {
+  padding: 10px 26px !important;
+  border-radius: 0;
+}
+
+.form-question-dropdown .ant-dropdown-menu .ant-dropdown-menu-item.ant-dropdown-menu-item-selected {
+  color: white !important;
+  background: #9C4DE2 !important;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #087B2F;
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.ant-switch.ant-switch-checked .ant-switch-inner {
+  background-color: #087B2F;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #087B2F !important;
+  border-color: #087B2F !important;
+  width: 1.4em !important;
+  height: 1.4em !important;
+}
+
+.ant-checkbox .ant-checkbox-inner::after {
+  scale: 1.3;
+}

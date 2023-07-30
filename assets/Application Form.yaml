@@ -1,0 +1,213 @@
+openapi: 3.0.0
+x-stoplight:
+  id: y9lu1wqa4bc0w
+info:
+  title: Application Form API
+  version: '1.0'
+  description: API Task
+servers:
+  - url: 'http://127.0.0.1:3100'
+    description: Prism Mock Server
+tags:
+  - name: Application Template
+    description: Application template grouping
+paths:
+  '/api/{version}/programs/{programId}/application-form':
+    parameters:
+      - schema:
+          type: string
+        name: programId
+        in: path
+        required: true
+      - schema:
+          type: number
+        name: version
+        in: path
+        required: true
+    get:
+      summary: Retrieve application form
+      operationId: get-applicationForm
+      description: Get application-form.
+      tags:
+        - Application Template
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationFOrm'
+              examples: {}
+    put:
+      summary: Upsert application form
+      operationId: update-applicationForm
+      description: Update application-form.
+      tags:
+        - Application Template
+      responses:
+        '204':
+          description: No Content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationFOrm'
+components:
+  schemas:
+    ApplicationFOrm:
+      type: object
+      x-stoplight:
+        id: 02a07b797fe99
+      properties:
+        data:
+          type: object
+          required:
+            - id
+            - type
+            - attributes
+          properties:
+            id:
+              type: string
+              format: uuid
+            type:
+              type: string
+              default: applicationForm
+            attributes:
+              $ref: '#/components/schemas/ApplicationFormAttributes'
+      required:
+        - data
+    ApplicationFormAttributes:
+      title: ApplicationFormAttributes
+      x-stoplight:
+        id: 5qzyjwlabkj2j
+      type: object
+      properties:
+        coverImage:
+          type: string
+          format: uri
+        personalInformation:
+          type: object
+          required:
+            - firstName
+            - lastName
+            - emailId
+            - phoneNumber
+            - nationality
+            - currentResidence
+            - idNumber
+            - dateOfBirth
+            - gender
+          properties:
+            firstName:
+              $ref: '#/components/schemas/PersonalInformationTemplate'
+            lastName:
+              $ref: '#/components/schemas/PersonalInformationTemplate'
+            emailId:
+              $ref: '#/components/schemas/PersonalInformationTemplate'
+            phoneNumber:
+              $ref: '#/components/schemas/PersonalInformationTemplate'
+            nationality:
+              $ref: '#/components/schemas/PersonalInformationTemplate'
+            currentResidence:
+              $ref: '#/components/schemas/PersonalInformationTemplate'
+            idNumber:
+              $ref: '#/components/schemas/PersonalInformationTemplate'
+            dateOfBirth:
+              $ref: '#/components/schemas/PersonalInformationTemplate'
+            gender:
+              $ref: '#/components/schemas/PersonalInformationTemplate'
+            personalQuestions:
+              type: array
+              items:
+                $ref: '#/components/schemas/QuestionTemplate'
+        profile:
+          type: object
+          properties:
+            education:
+              $ref: '#/components/schemas/ProfileTemplate'
+            experience:
+              $ref: '#/components/schemas/ProfileTemplate'
+            resume:
+              $ref: '#/components/schemas/ProfileTemplate'
+            profileQuestions:
+              type: array
+              items:
+                $ref: '#/components/schemas/QuestionTemplate'
+          required:
+            - education
+            - experience
+            - resume
+        customisedQuestions:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuestionTemplate'
+      required:
+        - personalInformation
+    PersonalInformationTemplate:
+      title: PersonalInformationTemplate
+      x-stoplight:
+        id: 4y1th3rznzv2v
+      type: object
+      properties:
+        internalUse:
+          type: boolean
+          default: false
+        show:
+          type: boolean
+          default: true
+      required:
+        - internalUse
+        - show
+    ProfileTemplate:
+      title: ProfileTemplate
+      x-stoplight:
+        id: jw9esus8pfhkp
+      type: object
+      properties:
+        mandatory:
+          type: boolean
+          default: true
+        show:
+          type: boolean
+          default: true
+      required:
+        - mandatory
+        - show
+    QuestionTemplate:
+      title: QuestionTemplate
+      x-stoplight:
+        id: zeww28z8klzhe
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        type:
+          type: string
+          enum:
+            - Paragraph
+            - ShortAnswer
+            - YesNo
+            - Dropdown
+            - MultipleChoice
+            - Date
+            - Number
+            - FileUpload
+        question:
+          type: string
+        choices:
+          type: array
+          items:
+            type: string
+        maxChoice:
+          type: integer
+        disqualify:
+          type: boolean
+          default: false
+        other:
+          type: boolean
+          default: false
+      required:
+        - type
+        - question
+  parameters: {}
