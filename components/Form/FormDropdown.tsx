@@ -1,7 +1,7 @@
-import { Dropdown, Form, Input } from "antd"
-import React, { useEffect } from "react"
-import FormFieldLayout from "./FormFieldLayout"
-import Button from "../Button"
+import Button from "../Button";
+import FormFieldLayout from "./FormFieldLayout";
+import React, { useEffect } from "react";
+import { Dropdown, Form, Input } from "antd";
 
 type IProps = {
   label?: string;
@@ -13,7 +13,7 @@ type IProps = {
   value?: string;
   onChange?: (value: string) => void;
   disabled?: boolean;
-}
+};
 
 export default function FormDropdown({
   label,
@@ -21,14 +21,16 @@ export default function FormDropdown({
   options,
   onChange,
   value,
-  disabled
+  disabled,
 }: IProps) {
-  const [selected, setSelected] = React.useState<string | null | undefined>(value || null)
+  const [selected, setSelected] = React.useState<string | null | undefined>(
+    value || null
+  );
   useEffect(() => {
-    setSelected(value)
-  }, [value])
+    setSelected(value);
+  }, [value]);
 
-  const optionsMapping: { [T: string]: string } = {}
+  const optionsMapping: { [T: string]: string } = {};
   const allOptions = options.map((option) => {
     optionsMapping[option.value as string] = option.label;
 
@@ -36,17 +38,17 @@ export default function FormDropdown({
       label: option.label,
       key: option.value,
       onClick: () => {
-        onChange && onChange(option.value)
-        setSelected(option.value)
+        onChange && onChange(option.value);
+        setSelected(option.value);
       },
       className: "form-question-dropdown-item",
-    }
-  })
+    };
+  });
 
   return (
     <FormFieldLayout
       label={label}
-      content={(
+      content={
         <Dropdown
           disabled={disabled}
           trigger={["click"]}
@@ -56,13 +58,16 @@ export default function FormDropdown({
             items: allOptions,
             selectedKeys: [selected || ""],
           }}
-
         >
           <Button className="flex items-center p-0 h-full font-[500]">
-            {selected && Object.keys(optionsMapping).includes(selected) ? optionsMapping[selected] : <span className="text-[#979797] ">{placeholder}</span>}
+            {selected && Object.keys(optionsMapping).includes(selected) ? (
+              optionsMapping[selected]
+            ) : (
+              <span className="text-[#979797] ">{placeholder}</span>
+            )}
           </Button>
         </Dropdown>
-      )}
+      }
     />
-  )
+  );
 }
